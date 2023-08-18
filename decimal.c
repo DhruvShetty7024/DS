@@ -1,41 +1,51 @@
 #include<stdio.h>
-#include<stdlib.h>
+#include<math.h>
 #define MAX 100
+int top = -1;
 int stack[MAX];
-int t=-1;
-void push(int n)
+
+void AddToStack(int n)
 {
-    if(t==MAX-1)
+    top++;
+    if(top<MAX)
     {
-        printf("Stack has overflowed");
-        return;
+        stack[top] = n;
     }
     else
     {
-        t++;
-        stack[t]=n;
+        printf("Stack Out Of Bound");
     }
 }
-void pop()
-{
-    if(t==-1)
-    {
-        printf("Stack has underflowed");
-        return;
-    }
-    else
-    {
-        stack[t--];
-    }
-}
-void display()
-{
-    for(int i=t;i>0;i--)
-    {
-        printf("%d\n",&stack);
-    }
-}
+
 int main()
 {
+    int n,base;
 
+    printf("Enter a number\n");
+    scanf("%d",&n);
+
+    printf("Enter the base\n");
+    scanf("%d",&base);
+
+    while(n!=0)
+    {
+        AddToStack(n%base);
+        n/=base;
+    }
+
+
+    int res=0;
+
+    while(top>=0)
+    {
+        int pop = stack[top];
+
+        if(pop>=10)
+            printf("%c",pop+55);
+        else printf("%d", pop);
+        top--;
+    }
+
+
+    return 0;
 }
