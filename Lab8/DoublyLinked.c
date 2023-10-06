@@ -265,4 +265,11 @@ int main() {
 
     return 0;
 }
+20 marks
+1 question
+subquestion
+all in one program
+Till lab 7
+6-8 marks writeup
+error in program-0
 
